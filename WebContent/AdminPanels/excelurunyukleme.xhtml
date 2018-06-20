@@ -1,0 +1,33 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      >
+<div class="col-md-12">
+	<div class="">
+		<div class="clearfix"></div>
+		<div class="row">
+
+
+			<p:panel header="GÜNCELLENEN EXCEL VERİLERİNİ SİSTEME AKTAR">
+				<p:panelGrid columns="8" style=" border-style: hidden !important;">
+				
+					<p:fileUpload label="ECXEL Dosyasını Seç "
+								fileUploadListener="#{excelUrunYuklemeBean.XLSDosyaAl}"
+								mode="advanced" allowTypes="/(\.|\/)(xls|xlsx)$/"
+								sizeLimit="10000000" skinSimple="true" />
+								
+						<p:commandButton value="EXCEL KAYITLARINI SİSTEME AKTAR" ajax="true" action="#{excelUrunYuklemeBean.XSLSistemeAktar()}"/>		
+				
+					
+						
+				</p:panelGrid>
+				</p:panel>
+		</div>				
+
+</div>
+</div>
+	
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	>
+
+<div class="col-md-12">
+	<div class="">
+		<div class="clearfix"></div>
+		<div class="row">
+
+
+			<p:panel header="ÜRÜN XML OLUŞTURMA ">
+					<p:panel header="Arama Kriterleri... ">
+						<p:panelGrid columns="8" style=" border-style: hidden !important;">
+
+						<p:outputLabel value="Kategori Adı" />
+							<h:selectOneMenu class="select2_single form-control" id="detay_kategori" value="#{xmlUrunCiktilamaBean.categoriId}"
+								style="width: 180px">
+								<f:selectItem itemLabel="Seçiniz" itemValue="0" />
+								
+								<f:selectItems value="#{xmlUrunCiktilamaBean.kategoriListesi}" var="listeler"
+									itemLabel="#{listeler.ad}"
+									itemValue="#{listeler.id}" />
+							</h:selectOneMenu>
+
+								<p:commandButton value="Tümünü Listele"
+								action="#{xmlUrunCiktilamaBean.urunleriListele()}" update="tbldetayliarama" />
+						
+							<p:commandButton value="LİSTELENEN KAYITLARI XML' E DÖNÜŞÜR"
+								ajax="false" actionListener="#{xmlUrunCiktilamaBean.urunleriXmlDonustur()}">
+
+							</p:commandButton>
+
+
+
+						</p:panelGrid>
+
+					</p:panel>
+
+
+
+					<p:spacer height="15" />
+
+					<p:dataTable value="#{xmlUrunCiktilamaBean.urunListesi}" var="hb"
+						id="tbldetayliarama" style="width:100%" rowStyleClass="green"
+						rows="20" paginator="true"
+						paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+						rowsPerPageTemplate="5,10,25,50,100,1000">
+
+
+						<p:column headerText="Id" width="100">
+							<h:outputText value="#{hb.id}" />
+						</p:column>
+
+						<p:column headerText="Urun Adı" width="100">
+
+							<h:outputText value="#{hb.ad}" />
+						</p:column>
+
+
+						<p:column headerText="Kategori Adı" width="150">
+							<h:outputText value="#{hb.kategoriadi}" />
+						</p:column>
+
+						<p:column headerText="Fiyat" width="85">
+							<h:outputText value="#{hb.fiyat}" />
+						</p:column>
+
+						
+
+					</p:dataTable>
+
+				
+			</p:panel>
+
+
+
+		</div>
+	</div>
+</div>
+
+</html>

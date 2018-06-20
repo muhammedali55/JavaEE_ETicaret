@@ -1,0 +1,168 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+	
+<h:head>
+<link href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css" />
+<script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+ <link type="text/css" rel="stylesheet" 
+	href="resources/css/createaccound.css?ln=css" />
+
+  <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+  <link rel="stylesheet" type="text/css" href="https://bootswatch.com/paper/bootstrap.min.css" />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</h:head>	
+	
+<h:body>
+<h:form>
+<h:commandButton value="Mail At" action="#{createAccoundBean.mailyolla()}"/>
+
+<div class="col-md-8">
+    <!-- UI - X Starts -->
+    <div class="ui-67">
+    
+      <!-- Head Starts -->
+      <div class="ui-head bg-lblue">
+        <!-- Details -->
+        <div class="ui-details">
+          <!-- Name -->
+          <h3 id="name-header">Steve Miller</h3>
+          <!-- Designation -->
+          <h4>Client Account</h4>
+        </div>
+        <!-- Image -->
+        <div class="ui-image">
+          <!-- User Image -->
+          <img src="https://api.adorable.io/avatars/285/abott@adorable.png" alt="Profile Picture" class="img-responsive" width="100" height="100" />
+        </div>
+      </div>
+      <!-- Head Ends -->
+      
+      <!-- Content Starts -->
+      <div class="ui-content">
+
+        <div class="row">
+          
+          <div class="col-sm-8 col-md-8 col-lg-8 col-lg-offset-2 acc-col">
+            <section>
+              <h3>Contact Information</h3>
+              <form class="ng-pristine ng-valid" role="form">
+                <div class="row">
+                   <div class="col-sm-12">
+                    <label for="inputName" class="control-label">Name:</label>
+                      <input type="text" class="form-control" id="inputName" />
+                  </div>               
+                </div>
+                <div class="row">
+                  <div class="col-sm-6">
+                    <label for="inputEmail3" class="control-label">Email:</label>
+                      <input type="email" class="form-control" id="inputEmail3" />
+                  </div>
+                  <div class="col-sm-6">
+                    <label for="inputPassword3" class="control-label">Phone Number:</label>
+                      <input type="text" class="form-control" id="inputPassword3" />
+                  </div>  
+                </div>
+
+                <div class="row">
+                  <div class="col-sm-4">
+                    <label for="inputEmail3" class="control-label">Address:</label>
+                      <input type="email" class="form-control" id="inputEmail3" />
+                  </div>
+                  <div class="col-sm-4">
+                    <label for="inputPassword3" class="control-label">City:</label>
+                      <input type="text" class="form-control" id="inputPassword3" />
+                  </div> 
+
+                  <div class="col-sm-2">
+                    <label for="inputPassword3" class="control-label">State/Province:</label>
+                      <input type="text" class="form-control" id="inputPassword3" />
+                  </div> 
+
+                  <div class="col-sm-2">
+                    <label for="inputPassword3" class="control-label">Zipcode:</label>
+                      <input type="text" class="form-control" id="inputPassword3" />
+                  </div> 
+                </div>
+
+          
+
+                <div class="col-sm-12">
+                  <div class="btn-div">
+                    <a href="https://creativethoughtz.com" class="btn btn-success pull-right">Update</a>
+                  </div>
+                </div>
+                </form>   
+            </section>
+
+           
+          
+          <section>
+            <h3>Login Information</h3>
+            <form class="" role="form">
+              <div class="row">
+                <div class="col-sm-12">
+                  <label for="inputEmail3" class="control-label">Password:</label>
+                  <div class="">
+                    <input type="password" class="form-control" id="inputEmail3" />
+                  </div>
+                </div>
+                <div class="col-sm-12">
+                  <label for="inputPassword3" class="control-label">Confirm:</label>
+                  <div class="">
+                    <input type="password" class="form-control" id="inputPassword3" />
+                  </div>
+                </div>
+                <div class="col-sm-12">
+                  <div class="btn-div">
+                    <a href="https://creativethoughtz.com" class="btn btn-success pull-right">Update</a>
+                  </div>
+                </div>           
+              </div>
+            </form>  
+          </section>
+          
+
+           <section>
+             
+            <h3>Personal Information</h3>
+              <form class="ng-pristine ng-valid" role="form">
+                <div class="row">
+                  
+                <div class="col-sm-12">
+                  <label for="inputPassword3" class="col-sm-12 control-label">About Me:</label>
+                  <div class="">
+                    <textarea rows="5" class="form-control" id="inputPassword3"></textarea>
+                  </div>
+                </div>
+                <div class="col-sm-12">
+                  <div class="btn-div">
+                    <a href="https://creativethoughtz.com" class="btn btn-success pull-right">Update</a>
+                  </div>
+                </div>
+                </div>
+              </form>
+           </section>
+
+          </div>
+          <!-- col-8 -->
+        </div>
+
+      </div>
+      <!-- Content Ends -->
+    </div>
+    <!-- UI - X Ends -->
+</div>
+
+</h:form>
+</h:body>
+</html>

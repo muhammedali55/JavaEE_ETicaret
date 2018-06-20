@@ -1,0 +1,78 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+	
+<h:head>
+<script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+<link href="https://netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css" />
+<script src="https://netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+
+ <link type="text/css" rel="stylesheet" 
+	href="resources/css/login.css?ln=css" />
+
+<link href='http://fonts.googleapis.com/css?family=Raleway:400,200' rel='stylesheet' type='text/css' />
+</h:head>
+
+<h:body>
+<h:form id="login-form">
+
+
+<div class="contanier col-lg-4 col-md-3 col-sm-3">
+</div>
+
+<div class="container col-lg-3 col-md-6 col-sm-6 center" style="margin-top: 45px">
+	<div class="row login_box">
+	    <div class="col-md-12 col-xs-12" align="center">
+            <div class="line"><h3>12 : 30 AM</h3></div>
+            <div class="outter"><img src="resources/images/img.jpg" class="image-circle"/></div>   
+            <h1>Merhaba Yetkili</h1>
+            <span>Vektörel Bilişim</span>
+	    </div>
+        <div class="col-md-6 col-xs-6 follow line" align="center">
+            <h3>
+                 1025 <br/> <span>YENİ SATIŞ</span>
+            </h3>
+        </div>
+        <div class="col-md-6 col-xs-6 follow line" align="center">
+            <h3>
+                 5201 <br/> <span>SİPARİŞ</span>
+            </h3>
+        </div>
+        
+        <div class="col-md-12 col-xs-12 login_control">
+                
+                <div class="control">
+                    <div class="label">Email Address</div>
+                    <h:inputText type="text" class="form-control" value="#{loginBean.username}" id="username"/>
+                </div>
+                
+                <div class="control">
+                     <div class="label">Password</div>
+                    <h:inputText type="password" class="form-control" value="#{loginBean.password}"/>
+                </div>
+                <div align="center">
+                <h:commandButton class="btn btn-orange" value="GİRİŞ" action="#{loginBean.doLogin}"/>
+                <br />
+                <a href="createaccount.jsf?faces-redirect=true">Üye Ol</a>
+                   
+                </div>
+              
+        </div>
+        <h:messages />
+        
+            
+    </div>
+</div>
+
+<div class="contanier col-lg-4 col-md-3 col-sm-3">
+</div>
+
+
+</h:form>
+</h:body>
+	
+</html>
