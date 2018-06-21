@@ -15,12 +15,22 @@ import javax.mail.internet.MimeMessage;
 @SessionScoped
 public class createAccoundBean {
 
-	public void mailyolla() {
+	private String isim;
+	private String email;
+	private String telefon;
+	private String sifre1;
+	private String sifre2;
+	private String durum;
+
+	
+	
+		public void mailyolla() {
+			System.out.println("Buradayız");
 		 // email ID of Recipient.
 	      String recipient = "muhammedali55@gmail.com";
 	 
 	      // email ID of  Sender.
-	      String sender = "sender@gmail.com";
+	      String sender = "vektorelbilisim@gmail.com";
 	 
 	      // using host as localhost
 	      String host = "127.0.0.1";
@@ -46,10 +56,13 @@ public class createAccoundBean {
 	         message.addRecipient(Message.RecipientType.TO, new InternetAddress(recipient));
 	 
 	         // Set Subject: subject of the email
-	         message.setSubject("This is Suject");
+	         message.setSubject("Üyelik Kayıt Bilgileri");
 	 
 	         // set body of the email.
-	         message.setText("This is a test mail");
+	         message.setText(" Kullanıcı Adı..:"+isim+
+	        		 		 " Telefon........:"+telefon+
+	        		 		 " Şifren.........:"+sifre1
+	        		 );
 	 
 	         // Send email.
 	         Transport.send(message);
@@ -61,5 +74,66 @@ public class createAccoundBean {
 	      }
 		
 	}
+
+
 	
+		
+		public String getDurum() {
+			return durum;
+		}
+		public void setDurum(String durum) {
+			this.durum = durum;
+		}
+		public String getIsim() {
+			return isim;
+		}
+
+
+		public void setIsim(String isim) {
+			this.isim = isim;
+		}
+
+
+		public String getEmail() {
+			return email;
+		}
+
+
+		public void setEmail(String email) {
+			this.email = email;
+		}
+
+
+		public String getTelefon() {
+			return telefon;
+		}
+
+
+		public void setTelefon(String telefon) {
+			this.telefon = telefon;
+		}
+
+
+		public String getSifre1() {
+			return sifre1;
+		}
+
+
+		public void setSifre1(String sifre1) {
+			this.sifre1 = sifre1;
+		}
+
+
+		public String getSifre2() {
+			return sifre2;
+		}
+
+
+		public void setSifre2(String sifre2) {
+			this.sifre2 = sifre2;
+		}
+
+		
+		
+		
 }

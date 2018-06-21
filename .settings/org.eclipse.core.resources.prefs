@@ -1,4 +1,5 @@
 eclipse.preferences.version=1
 encoding//WebContent/AdminPanels/kategori.xhtml=UTF-8
+encoding//src/beans/createAccoundBean.java=UTF-8
 encoding//src/beans/kategoribean.java=UTF-8
 encoding//src/beans/xmlUrunCiktilamaBean.java=UTF-8
