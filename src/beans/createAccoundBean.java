@@ -79,7 +79,9 @@ public class createAccoundBean {
 				message.setSubject("Üyelik Aktivasyonu");
 				message.setText("Merhabe Yeni Üye," + "\n\n "
 								+"Üye Adınız...: "+isim
-								+"Şifreniz.....: "+sifre1
+								+"Şifreniz.....: "+sifre1+
+								"Üyeliğini Aktif Etmek için Link e Tıkla...: \n\n"+
+								""
 						);
 
 				Transport.send(message);
