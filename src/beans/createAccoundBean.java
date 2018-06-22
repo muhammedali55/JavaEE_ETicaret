@@ -28,6 +28,18 @@ public class createAccoundBean {
 	private String durum;
 	private tblMusteriDAO DBmusteri = new tblMusteriDAO();
 	
+	
+		public String kodver() {
+			//muhammedali55@gmail.com
+			String mail = email;
+			int deger=13;
+			String kod="";
+			for (int i=0;i<mail.length();i++) {
+				kod += ((int)mail.charAt(i)*deger)+"_";
+			}
+			return kod;			
+		}
+	
 		public void ismusteri() {
 			tblmusteri mst=null;
 		for (tblmusteri item : DBmusteri.ara("email", email, new tblmusteri())) {
@@ -50,7 +62,8 @@ public class createAccoundBean {
 			kayit.setTelefon(telefon);
 			kayit.setDurum(0);
 			DBmusteri.kaydet(kayit);
-			mailyolla();			
+			mailyolla();
+			durum="KAYIT İŞLEMİ TAMAMLANMIŞTIR LÜTFEN AKTİVASYON İÇİN MAİL ADRESİNİZİ KONTROL EDİNİZ.";
 		}			
 		}
 	
@@ -81,7 +94,7 @@ public class createAccoundBean {
 								+"Üye Adınız...: "+isim
 								+"Şifreniz.....: "+sifre1+
 								"Üyeliğini Aktif Etmek için Link e Tıkla...: \n\n"+
-								""
+								"http://localhost:8080/MusteriTakip/aktivasyon.jsf?kod="+kodver()
 						);
 
 				Transport.send(message);

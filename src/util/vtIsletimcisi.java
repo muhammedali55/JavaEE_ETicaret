@@ -195,6 +195,28 @@ public class vtIsletimcisi<T> implements Icrud<T> {
     }
 
     @Override
+    public List<T> araFull(String kolon, String deger, T t) {
+         List<T> listem;
+        try{
+        sessionAC();
+        Criteria cr = ss.createCriteria(t.getClass());
+        cr.add(Restrictions.eq(kolon, deger));
+        listem = cr.list();
+        sessionKapat();
+        return listem;
+        }catch(Exception ex){
+              tbllog log = new tbllog();
+          log.setSinif(t.getClass().toString());
+          log.setMethod("Listele");
+          Date dt = new Date();
+          log.setTarih(dt);
+          log.setHataicerigi(ex.toString());
+          logt.kayit(log);    
+        return null;
+        }
+    }
+    
+    @Override
     public List<T> ara(T t) {
          List<T> listem;
          Class tm = t.getClass();

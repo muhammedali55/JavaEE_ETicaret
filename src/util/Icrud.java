@@ -9,5 +9,7 @@ public interface Icrud<T> {
 	    public List<T> listele(T t);
 	    public T bul(int id, T t);
 	    public List<T> ara(String kolon,String deger,T t);
+	    public List<T> araFull(String kolon,String deger,T t);
+		   
 	    public List<T> ara(T t);
 }
