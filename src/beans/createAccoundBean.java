@@ -6,11 +6,16 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.mail.Message;
 import javax.mail.MessagingException;
+import javax.mail.PasswordAuthentication;
 import javax.mail.Session;
 import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 
+import dal.tblMusteriDAO;
+import models.tblmusteri;
+
+@SuppressWarnings("deprecation")
 @ManagedBean
 @SessionScoped
 public class createAccoundBean {
@@ -21,61 +26,70 @@ public class createAccoundBean {
 	private String sifre1;
 	private String sifre2;
 	private String durum;
-
+	private tblMusteriDAO DBmusteri = new tblMusteriDAO();
 	
+		public void ismusteri() {
+			tblmusteri mst=null;
+		for (tblmusteri item : DBmusteri.ara("email", email, new tblmusteri())) {
+			mst = item;
+		}	
+		if(mst!=null) {
+			if(mst.getDurum()==0)
+				durum="Bu E-Mail Adresi daha önce kullanılmıştır ve aktivasyon beklemektedir. <br />"
+						+ "Lütfen e-mail adresini kontrol ederek ilgili aktivasyonu sağlayınız.";
+			else
+				durum="Bu E-Mail adresi ile daha önce kayıt açılmıştır. Lütfen kontrol sağlayarak başka bir email adresi giriniz.";
+		}			
+		else {
+		
+			tblmusteri kayit = new tblmusteri();
+			kayit.setAd(isim);
+			kayit.setEmail(email);
+			kayit.setSifre(sifre1);
+			kayit.setSil_id(1);
+			kayit.setTelefon(telefon);
+			kayit.setDurum(0);
+			DBmusteri.kaydet(kayit);
+			mailyolla();			
+		}			
+		}
 	
 		public void mailyolla() {
-			System.out.println("Buradayız");
-		 // email ID of Recipient.
-	      String recipient = "muhammedali55@gmail.com";
-	 
-	      // email ID of  Sender.
-	      String sender = "vektorelbilisim@gmail.com";
-	 
-	      // using host as localhost
-	      String host = "127.0.0.1";
-	 
-	      // Getting system properties
-	      Properties properties = System.getProperties();
-	 
-	      // Setting up mail server
-	      properties.setProperty("mail.smtp.host", host);
-	 
-	      // creating session object to get properties
-	      Session session = Session.getDefaultInstance(properties);
-	 
-	      try
-	      {
-	         // MimeMessage object.
-	         MimeMessage message = new MimeMessage(session);
-	 
-	         // Set From Field: adding senders email to from field.
-	         message.setFrom(new InternetAddress(sender));
-	 
-	         // Set To Field: adding recipient's email to from field.
-	         message.addRecipient(Message.RecipientType.TO, new InternetAddress(recipient));
-	 
-	         // Set Subject: subject of the email
-	         message.setSubject("Üyelik Kayıt Bilgileri");
-	 
-	         // set body of the email.
-	         message.setText(" Kullanıcı Adı..:"+isim+
-	        		 		 " Telefon........:"+telefon+
-	        		 		 " Şifren.........:"+sifre1
-	        		 );
-	 
-	         // Send email.
-	         Transport.send(message);
-	         System.out.println("Mail successfully sent");
-	      }
-	      catch (MessagingException mex) 
-	      {
-	         mex.printStackTrace();
-	      }
 		
+			final String username = "muhammed.ali.kaya.0606@gmail.com";
+			final String password = "Aa123456*";
+
+			Properties props = new Properties();
+			props.put("mail.smtp.auth", "true");
+			props.put("mail.smtp.starttls.enable", "true");
+			props.put("mail.smtp.host", "smtp.gmail.com");
+			props.put("mail.smtp.port", "587");
+
+			Session session = Session.getInstance(props, new javax.mail.Authenticator() {
+				protected PasswordAuthentication getPasswordAuthentication() {
+					return new PasswordAuthentication(username, password);
+				}
+			});
+
+			try {
+
+				Message message = new MimeMessage(session);
+				message.setFrom(new InternetAddress("muhammedali55@gmail.com"));
+				message.setRecipients(Message.RecipientType.TO, InternetAddress.parse("muhammedali55@gmail.com"));
+				message.setSubject("Üyelik Aktivasyonu");
+				message.setText("Merhabe Yeni Üye," + "\n\n "
+								+"Üye Adınız...: "+isim
+								+"Şifreniz.....: "+sifre1
+						);
+
+				Transport.send(message);
+
+				System.out.println("Done");
+
+			} catch (MessagingException e) {
+				throw new RuntimeException(e);
+			}
 	}
-
-
 	
 		
 		public String getDurum() {

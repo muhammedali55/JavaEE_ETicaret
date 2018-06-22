@@ -22,10 +22,41 @@ public class tblmusteri {
  private	String telefon;
 
  private	String adres;
+ 
+ private String email;
+ 
+ private String sifre;
+ 
+ private int durum;
 
  private	int sil_id;
 	
+ 
 	
+	public String getEmail() {
+	return email;
+}
+
+public void setEmail(String email) {
+	this.email = email;
+}
+
+public String getSifre() {
+	return sifre;
+}
+
+public void setSifre(String sifre) {
+	this.sifre = sifre;
+}
+
+public int getDurum() {
+	return durum;
+}
+
+public void setDurum(int durum) {
+	this.durum = durum;
+}
+
 	public String getAdres() {
 	return adres;
 }
