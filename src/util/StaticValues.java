@@ -10,6 +10,8 @@ public class StaticValues {
 
 	public static String kullanici;
 
+	public static int secilenurun;
+	
 	private String user;
 	public static String getKullanici() {
 		

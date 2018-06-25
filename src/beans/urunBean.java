@@ -11,6 +11,8 @@ import dal.tblCatDAO;
 import dal.tblUrunDAO;
 import models.tblcategori;
 import models.tblurun;
+import util.StaticValues;
+
 import javax.mail.Message;
 import javax.mail.MessagingException;
 import javax.mail.PasswordAuthentication;
@@ -36,7 +38,12 @@ public class urunBean {
 	tblUrunDAO DataB = new tblUrunDAO();
 		
 	tblCatDAO Cdb = new tblCatDAO();
-		
+	
+	public void urunsec(int id) {
+	 StaticValues.secilenurun = id;	
+	}
+	
+	
 	public void kaydet() {
 		
 		tblurun item = new tblurun();

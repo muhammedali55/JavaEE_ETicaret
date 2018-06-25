@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://soapservices" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://soapservices" xmlns:intf="http://soapservices" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+ <wsdl:types>
+  <schema elementFormDefault="qualified" targetNamespace="http://soapservices" xmlns="http://www.w3.org/2001/XMLSchema">
+   <element name="urunListesi">
+    <complexType/>
+   </element>
+   <element name="urunListesiResponse">
+    <complexType>
+     <sequence>
+      <element name="urunListesiReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="urunListesiRequest">
+
+      <wsdl:part element="impl:urunListesi" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="urunListesiResponse">
+
+      <wsdl:part element="impl:urunListesiResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:portType name="urunservices">
+
+      <wsdl:operation name="urunListesi">
+
+         <wsdl:input message="impl:urunListesiRequest" name="urunListesiRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:urunListesiResponse" name="urunListesiResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="urunservicesSoapBinding" type="impl:urunservices">
+
+      <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="urunListesi">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="urunListesiRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="urunListesiResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="urunservicesService">
+
+      <wsdl:port binding="impl:urunservicesSoapBinding" name="urunservices">
+
+         <wsdlsoap:address location="http://localhost:8080/MusteriTakip/services/urunservices"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>
