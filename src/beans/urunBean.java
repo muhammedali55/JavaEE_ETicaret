@@ -2,7 +2,6 @@ package beans;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Properties;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
@@ -13,13 +12,6 @@ import models.tblcategori;
 import models.tblurun;
 import util.StaticValues;
 
-import javax.mail.Message;
-import javax.mail.MessagingException;
-import javax.mail.PasswordAuthentication;
-import javax.mail.Session;
-import javax.mail.Transport;
-import javax.mail.internet.InternetAddress;
-import javax.mail.internet.MimeMessage;
 
 @SuppressWarnings("deprecation")
 @ManagedBean
@@ -35,12 +27,17 @@ public class urunBean {
 	private String aciklama;
 	private String kategoriadi;
 	private int silinecekid=0;
+	private int urunid;
+	private String ortalan="urunlistesi.xhtml";
+	private tblurun urun = new tblurun();
 	tblUrunDAO DataB = new tblUrunDAO();
 		
 	tblCatDAO Cdb = new tblCatDAO();
 	
-	public void urunsec(int id) {
-	 StaticValues.secilenurun = id;	
+	public void urunsec() {
+	urun = DataB.bul(urunid, new tblurun());
+	StaticValues.secilenurun = urunid;	
+	ortalan = "urundetails.xhtml";
 	}
 	
 	
@@ -74,6 +71,36 @@ public class urunBean {
 	
 	
 	
+	public tblurun getUrun() {
+		return urun;
+	}
+
+
+	public void setUrun(tblurun urun) {
+		this.urun = urun;
+	}
+
+
+	public String getOrtalan() {
+		return ortalan;
+	}
+
+
+	public void setOrtalan(String ortalan) {
+		this.ortalan = ortalan;
+	}
+
+
+	public int getUrunid() {
+		return urunid;
+	}
+
+
+	public void setUrunid(int urunid) {
+		this.urunid = urunid;
+	}
+
+
 	public int getSilinecekid() {
 		return silinecekid;
 	}

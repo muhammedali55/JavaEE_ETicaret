@@ -9,11 +9,13 @@
 <h:head>
   <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-
+  <link rel="stylesheet" href="resources/css/productdetail.css" />
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous" />
     <link rel="stylesheet" href="resources/css/navbar.css" />
     <link rel="stylesheet" href="resources/css/products.css" />
+  
+
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous" />
 
     <title>Hello, world!</title>
@@ -21,7 +23,9 @@
 
 
 <h:body>
-<h:form>
+<h:form id="frmdefault">
+
+
 
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous"/>
 
@@ -31,11 +35,14 @@
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
           </button>
-
+<div style="visibility: hidden">
+<h:inputText id="txturun" value="#{urunBean.urunid}" />
+<h:commandButton id="btnurun" action="#{urunBean.urunsec}" value="Ürün Seç"/>
+</div>
           <div class="collapse navbar-collapse justify-content-end" id="navbarsExampleDefault">
               <ul class="navbar-nav m-auto">
                   <li class="nav-item">
-                      <a class="nav-link" href="index.html">Home</a>
+                      <a class="nav-link" href="urunler.jsf?faces-redirect=true">Home</a>
                   </li>
                   <li class="nav-item active">
                       <a class="nav-link" href="category.html">Categories <span class="sr-only">(current)</span></a>
@@ -51,7 +58,7 @@
                   </li>
               </ul>
 
-              <form class="form-inline my-2 my-lg-0">
+            
                   <div class="input-group input-group-sm">
                       <input type="text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm" placeholder="Search..."/>
                       <div class="input-group-append">
@@ -64,7 +71,7 @@
                       <i class="fa fa-shopping-cart"></i> Cart
                       <span class="badge badge-light">3</span>
                   </a>
-              </form>
+             
           </div>
       </div>
   </nav>
@@ -116,67 +123,10 @@
               </div>
           </div>
           <div class="col">
-              <div class="row">
-               
-               <ui:repeat var="ls" value="#{urunBean.listem}">
-                <div class="col-md-4 mt-5">
-                      <div class="card text-center">
-                        <img class="card-img-top" src="https://icdn2.digitaltrends.com/image/spring-cleaning-for-your-pc-cables-wires-desk-720x720.png?ver=1.jpg" alt="Card image cap"/>
-                        <div class="card-body">
-                          <h5 class="card-title"><h:outputLabel value="#{ls.ad}"/></h5>
-                          <h:outputLabel value="#{ls.aciklama}"/>
-                          <hr />
-                          <p>
-                            <a class="btn btn-primary" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
-                              <i class="fas fa-map"></i> Ürün Detayı
-                              <h:commandButton action="#{urunBean.urunsec(ls.id)}" />
-                            </a>
-                          </p>
-                          <div class="collapse" id="collapseExample">
-                            <div class="card card-body">
-                              <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d11880.492291371422!2d12.4922309!3d41.8902102!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x28f1c82e908503c4!2sColosseo!5e0!3m2!1sit!2sit!4v1524815927977" width="100%" height="200" frameborder="0" style="border:0" allowfullscreen="true"></iframe>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="card-footer text-muted">
-                          <div class="row">
-                            <div class="col">
-                              <a href=""><i class="fas fa-map"></i></a>
-                            </div>
-                            <div class="col">
-                              <a href="mailto:test@test.com"><i class="fas fa-envelope"></i></a>
-                            </div>
-                            <div class="col">
-                              <a href="tel:+123456789"><i class="fas fa-phone"></i></a>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                </div>
-               </ui:repeat>
-               
-
-
-
-                  <div class="col-12">
-                      <nav aria-label="...">
-                          <ul class="pagination">
-                              <li class="page-item disabled">
-                                  <a class="page-link" href="#" tabindex="-1">Previous</a>
-                              </li>
-                              <li class="page-item"><a class="page-link" href="#">1</a></li>
-                              <li class="page-item active">
-                                  <a class="page-link" href="#">2 <span class="sr-only">(current)</span></a>
-                              </li>
-                              <li class="page-item"><a class="page-link" href="#">3</a></li>
-                              <li class="page-item">
-                                  <a class="page-link" href="#">Next</a>
-                              </li>
-                          </ul>
-                      </nav>
-                  </div>
-
-              </div>
+        
+        	<ui:include src="#{urunBean.ortalan}" />
+        		  
+            
           </div>
 
       </div>
@@ -237,7 +187,12 @@
   </footer>
 
 
-
+<script>
+function ekle(id){
+	document.getElementById("frmdefault:txturun").value=id;
+	document.getElementById("frmdefault:btnurun").click();
+}
+</script>
    
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>

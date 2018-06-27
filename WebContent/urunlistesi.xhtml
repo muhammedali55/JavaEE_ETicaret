@@ -1,0 +1,72 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+  <div class="row">
+               
+               <ui:repeat var="ls" value="#{urunBean.listem}">
+                <div class="col-md-4 mt-5">
+                      <div class="card text-center">
+                        <img class="card-img-top" src="https://icdn2.digitaltrends.com/image/spring-cleaning-for-your-pc-cables-wires-desk-720x720.png?ver=1.jpg" alt="Card image cap"/>
+                        <div class="card-body">
+                          <h5 class="card-title"><h:outputLabel value="#{ls.ad}"/></h5>
+                          <h:outputLabel value="#{ls.aciklama}"/>
+                          <hr />
+                          <p>
+                            <a class="btn btn-primary" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample" onclick="ekle('#{ls.id}')">
+                              <i class="fas fa-map"></i> Ürün Detayı
+                               
+                            </a>
+                          </p>
+                          <div class="collapse" id="collapseExample">
+                            <div class="card card-body">
+                              <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d11880.492291371422!2d12.4922309!3d41.8902102!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x28f1c82e908503c4!2sColosseo!5e0!3m2!1sit!2sit!4v1524815927977" width="100%" height="200" frameborder="0" style="border:0" allowfullscreen="true"></iframe>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="card-footer text-muted">
+                          <div class="row">
+                            <div class="col">
+                              <a href=""><i class="fas fa-map"></i></a>
+                            </div>
+                            <div class="col">
+                              <a href="mailto:test@test.com"><i class="fas fa-envelope"></i></a>
+                            </div>
+                            <div class="col">
+                              <a href="tel:+123456789"><i class="fas fa-phone"></i></a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                </div>
+               </ui:repeat>
+               
+
+
+
+                  <div class="col-12">
+                      <nav aria-label="...">
+                          <ul class="pagination">
+                              <li class="page-item disabled">
+                                  <a class="page-link" href="#" tabindex="-1">Previous</a>
+                              </li>
+                              <li class="page-item"><a class="page-link" href="#">1</a></li>
+                              <li class="page-item active">
+                                  <a class="page-link" href="#">2 <span class="sr-only">(current)</span></a>
+                              </li>
+                              <li class="page-item"><a class="page-link" href="#">3</a></li>
+                              <li class="page-item">
+                                  <a class="page-link" href="#">Next</a>
+                              </li>
+                          </ul>
+                      </nav>
+                  </div>
+
+              </div>
+        
+
+</html>
